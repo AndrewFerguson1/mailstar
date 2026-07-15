@@ -13,7 +13,7 @@ Mailstar is a fast, focused email command center built around one idea: spend le
 - Local persistence for mailbox state between browser sessions
 - Accessible controls, dialogs, focus states, and reduced-motion support
 - Unit coverage for mailbox filtering, searching, state transitions, and stats
-- Automated lint, test, build, and GitHub Pages deployment on every push to `main`
+- Automated lint, test, and production build checks on every push to `main`
 
 ## Run locally
 
@@ -53,9 +53,9 @@ Mailstar is a React 19 single-page application built with Vite 8. Mailbox rules 
 
 State is saved to browser `localStorage`. Clear the keys beginning with `mailstar-` to reset the demo inbox.
 
-## Deployment
+## Continuous integration
 
-The workflow in `.github/workflows/deploy.yml` validates the app, builds it, and publishes the `dist` directory to GitHub Pages after a successful push to `main`. The Vite base path is configured for the `mailstar` repository.
+The workflow in `.github/workflows/deploy.yml` installs from the lockfile and runs the complete quality gate on every push and pull request targeting `main`. The Vite base path remains configured for the `mailstar` repository, so the built `dist` directory is ready for GitHub Pages whenever Pages is enabled in the repository settings.
 
 ## License
 
